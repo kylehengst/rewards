@@ -10,7 +10,7 @@
     function Data() {
 
         var model = this;
-        model.shape = 'square';
+        model.shape = '';
         model.getDimension = getDimension;
 
         function getDimension()
