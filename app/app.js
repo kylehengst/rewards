@@ -8,6 +8,7 @@
         'ui.router',
         'ui.bootstrap',
         'ui.bootstrap.tooltip',
+        'xeditable',
 
         'env',
 

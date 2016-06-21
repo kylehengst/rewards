@@ -1,1 +1,21 @@
-{{shapevm.selectedShape}}
+<div id="controls">
+
+    <div class="form-group">
+
+        <label>{{shapevm.dimension}}</label>
+
+        <div class="form-control" editable-number="shapvm.size" e-min="1" onbeforesave="shapevm.updateSize($data)">
+            {{shapevm.size || 100}}px
+        </div>
+
+    </div>
+
+    <p>
+        <button class="btn btn-block btn-primary" ng-click="shapevm.renderShape()">Render</button>
+    </p>
+
+</div>
+
+<div id="draw">
+    <canvas id="canvas" width="260" height="260"></canvas>
+</div>

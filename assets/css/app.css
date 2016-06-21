@@ -1,9 +1,25 @@
-#menu { display: -webkit-box; display: -ms-flexbox; display: flex; margin-bottom: 20px; background: darkblue; height: 100px; }
+.editable-wrap { display: block; }
+
+.editable-click, a.editable-click { border-bottom: none; color: inherit; border-bottom: dotted 1px transparent; }
+
+.editable-click:hover, a.editable-click:hover { border-bottom: dotted 1px #2a6496; cursor: pointer; }
+
+body { background: #CCCCCC; }
+
+.btn, input, .form-control { border-radius: 0; border: none; }
+
+#menu { display: -webkit-box; display: -ms-flexbox; display: flex; margin-bottom: 20px; background: black; height: 100px; margin-left: -15px; margin-right: -15px; padding-left: 15px; padding-right: 15px; }
 
 #menu .shape { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
 
-#menu .shape a { display: block; background: aqua; width: 60px; height: 60px; }
+#menu .shape.active { background: #337ab7; }
+
+#menu .shape a { display: block; background: white; width: 60px; height: 60px; }
 
 #menu .shape.circle a { border-radius: 30px; }
 
-#menu .shape.triangle a { background: none; width: 0; height: 0; border-style: solid; border-width: 0 40px 60px 40px; border-color: transparent transparent aqua transparent; }
+#menu .shape.triangle a { background: none; width: 0; height: 0; border-style: solid; border-width: 0 40px 60px 40px; border-color: transparent transparent white transparent; }
+
+#draw { text-align: center; padding-top: 10px; }
+
+#draw canvas { border: 1px solid black; }

@@ -1,15 +1,13 @@
 <div id="menu">
-  <div class="shape square" ng-class="{active:main.selectedShape=='square'}">
+  <div class="shape square" ng-class="{active:mainvm.Data.shape=='square'}">
     <a ui-sref="app.shape({shape:'square'})"></a>
   </div>
-  <div class="shape circle" ng-class="{active:main.selectedShape=='circle'}">
+  <div class="shape circle" ng-class="{active:mainvm.Data.shape=='circle'}">
     <a ui-sref="app.shape({shape:'circle'})"></a>
   </div>
-  <div class="shape triangle" ng-class="{active:main.selectedShape=='triangle'}">
+  <div class="shape triangle" ng-class="{active:mainvm.Data.shape=='triangle'}">
     <a ui-sref="app.shape({shape:'triangle'})"></a>
   </div>
 </div>
 
 <div ui-view></div>
-
-<!-- hello {{mainvm.selectedShape}} -->

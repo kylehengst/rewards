@@ -27,8 +27,9 @@
 
         })
 
-        .run(function($rootScope, CONFIG){
+        .run(function($rootScope, CONFIG, editableOptions){
             $rootScope.ENV = CONFIG.ENV;
+            editableOptions.theme = 'bs3';
         })
 
     ;

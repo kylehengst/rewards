@@ -1,37 +1,93 @@
 <!DOCTYPE html>
 <html ng-app="app">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Shape Selector</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" charset="utf-8">
     <link rel="stylesheet" href="bower_components/toastr/toastr.css" charset="utf-8">
+    <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" charset="utf-8">
     <link rel="stylesheet" href="assets/css/app.css" charset="utf-8">
-  </head>
-  <body>
+</head>
+<body>
 
-    <div class="container">
-        <div ui-view></div>
-    </div>
+<div class="container">
+    <div ui-view></div>
+</div>
 
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/ngtouch/build/ngTouch.min.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="bower_components/toastr/toastr.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/ngtouch/build/ngTouch.min.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+<script src="bower_components/toastr/toastr.js"></script>
 
-    <script src="env.js" charset="utf-8"></script>
-    <script src="app/app.js" charset="utf-8"></script>
-    <script src="app/routes.js" charset="utf-8"></script>
-    <script src="app/filters.js" charset="utf-8"></script>
-    <script src="app/services/data.js" charset="utf-8"></script>
+<script src="env.js" charset="utf-8"></script>
+<script src="app/app.js" charset="utf-8"></script>
+<script src="app/routes.js" charset="utf-8"></script>
+<script src="app/filters.js" charset="utf-8"></script>
+<script src="app/services/data.js" charset="utf-8"></script>
 
-    <script src="app/controllers/controllers.js" charset="utf-8"></script>
-    <script src="app/controllers/main.js" charset="utf-8"></script>
-    <script src="app/controllers/shape.js" charset="utf-8"></script>
+<script src="app/controllers/controllers.js" charset="utf-8"></script>
+<script src="app/controllers/main.js" charset="utf-8"></script>
+<script src="app/controllers/shape.js" charset="utf-8"></script>
 
-  </body>
+<script>
+
+    var DrawShape = function (type, dimensions) {
+
+        console.log(type, dimensions);
+
+        var canvas = document.getElementById("canvas");
+        var width = canvas.width;
+        var height = canvas.height;
+        var ctx = canvas.getContext("2d");
+
+        draw();
+
+        function draw() {
+
+            ctx.clearRect(0, 0, width, height);
+            ctx.beginPath();
+
+            switch (type) {
+                case 'square':
+                    var x = (width - dimensions.size) / 2;
+                    var y = (height - dimensions.size) / 2;
+                    ctx.rect(x, y, dimensions.size, dimensions.size);
+                    ctx.fill();
+                    break;
+                case 'circle':
+                    ctx.arc(width / 2, height / 2, dimensions.size, 0, 2 * Math.PI);
+                    ctx.fill();
+                    break;
+                case 'triangle':
+                    ctx.moveTo(width / 2, height / 2 - dimensions.size);
+                    ctx.lineTo(
+                            width / 2 + Math.cos(degToRad(30)) * dimensions.size,
+                            height / 2 + Math.sin(degToRad(30)) * dimensions.size
+                    );
+                    ctx.lineTo(
+                            width / 2 - Math.cos(degToRad(30)) * dimensions.size,
+                            height / 2 + Math.sin(degToRad(30)) * dimensions.size
+                    );
+                    ctx.lineTo(width / 2, height / 2 - dimensions.size);
+                    ctx.fill();
+                    break;
+            }
+
+        }
+
+        function degToRad(deg) {
+            return deg * (Math.PI / 180);
+        }
+
+    }
+
+</script>
+
+</body>
 </html>

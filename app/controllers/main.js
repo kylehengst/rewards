@@ -10,7 +10,7 @@
     function MainCtrl($state, $stateParams, $http, Data) {
 
         var mainvm = this;
-        mainvm.selectedShape = Data.shape;
+        mainvm.Data = Data;
 
         activate();
 
