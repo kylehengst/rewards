@@ -23,6 +23,7 @@
     "angular-ui-router": "~0.2.15",
     "bootstrap": "^3.2.0",
     "ngtouch": "~1.0.1",
-    "toastr": "~2.1.2"
+    "toastr": "~2.1.2",
+    "angular-xeditable": "^0.1.12"
   }
 }
