@@ -23,7 +23,7 @@
 
             ;
 
-            $urlRouterProvider.otherwise('/');
+            $urlRouterProvider.otherwise('/square');
 
         })
 
